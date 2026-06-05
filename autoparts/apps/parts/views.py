@@ -1,6 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
-# Create your views here.
 def index(request):
-    return HttpResponse("Hello, You're at the parts index.")
+    return render(request, 'home/index.html')
+
+def pageNotFound(request, exception):
+    return HttpResponseNotFound("<h1>Page Not Found</h1>")
